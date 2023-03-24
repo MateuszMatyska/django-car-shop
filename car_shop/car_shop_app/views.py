@@ -1,5 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from . import models
+
 def index(request):
-    return HttpResponse("Hello, world. Car Shop Index.")
+    cars = models.Car.objects.all()
+    context = {'cars_list': cars}
+    return render(request, 'cars/index.html', context)
+
