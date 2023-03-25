@@ -1,6 +1,19 @@
 {% extends "../index.html" %}
 
 {% block content %}
+{% load static %}
+<script src="{% static 'searching.js' %}"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <input id="search-input" type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                <button class="btn btn-primary" type="button" id="button-addon2" onclick="searchingCars()">Button</button>
+            </div>
+        </div>
+    </div>
+</div>      
 {% if cars_list %}
 <table class="table">
     <thead class="table-primary">
@@ -32,12 +45,4 @@
     <p class="card-text">There are no cars. You can add new car to app. Press Button below</p>
 </div>
 {% endif %}
-<div class="container">
-    <div class="row">
-        <div class="col-10"></div>
-        <div class="col-2 ms-auto">
-            <a style="width: 100%;" class="btn btn-primary btn-lg" href="" role="button">Add car</a>
-        </div>
-    </div>
-</div>  
 {% endblock %}
