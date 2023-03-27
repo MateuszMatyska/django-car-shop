@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-<script src="{% static 'searching.js' %}"></script>
+<script src="{% static '/searching.js' %}"></script>
 <div class="container">
     <div class="row">
         <div class="col-8"></div>
@@ -24,6 +24,7 @@
           <th scope="col">Year</th>
           <th scope="col">Engine</th>
           <th scope="col">Price</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody class="table-group-divider table-secondary">
@@ -35,6 +36,9 @@
                 <td>{{ car.year }}</td>
                 <td>{{ car.engine }}</td>
                 <td>{{ car.price }}</td>
+                <td>
+                    <a href="car/id={{ car.id }}" class="btn btn-primary" role="button" >More Info</a> 
+                </td>
             </tr>
         {% endfor %}
       </tbody>
@@ -42,7 +46,7 @@
 {% else %}
 <div class="card-body">
     <h5 class="card-title">No cars are available.</h5>
-    <p class="card-text">There are no cars. You can add new car to app. Press Button below</p>
+    <p class="card-text">There are no cars.</p>
 </div>
 {% endif %}
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "../index.html" %}
+
+{% block content %}
+{% if car%}
+<div class="container">
+<div class="row">
+<div class="col-6">
+    {% load static %}
+    <img src="{% static '/car.jpg' %}" alt="car" class="img-fluid" >
+</div>
+<div class="col-6">
+    <div class="col-12">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h4 class="card-title">{{car.brand_name}} {{car.model_name}}</h4>
+              <h6>Year: {{car.year}}</h6>
+              <h6>Engine: {{car.engine}}</h6>
+              <h5> {{car.price}}&euro; </h5>
+            </div>
+          </div>
+    </div>
+</div>
+</div>
+</div>
+{% else %}
+<div class="card-body">
+    <h5 class="card-title">No car is available.</h5>
+    <p class="card-text">There is no car</p>
+</div>
+{% endif %}
+{% endblock %}
